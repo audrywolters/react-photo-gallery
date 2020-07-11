@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import './App.css';
+import GalleryList from '../GalleryList/GalleryList';
 
 class App extends Component {
 
@@ -30,19 +31,19 @@ class App extends Component {
   } // end getItems
 
   render() {
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <p>Gallery goes here</p>
-        <ul>
-          { this.state.galleryList.map( ( picture ) => <img key={ picture.id } src={ picture.path } />)}
-        </ul>
+        <GalleryList pictures={ this.state.galleryList } />
       </div>
-    );
-  }
-}
+    ); // end return
+    
+  } // end render
+
+} // end App
 
 export default App;
