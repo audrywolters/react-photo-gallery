@@ -10,6 +10,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log( 'in APP ' );
     this.getGalleryList();
   }
 
@@ -18,8 +19,10 @@ class App extends Component {
     axios({
       method: 'GET',
       url: '/gallery'
-    }).then( ( response ) =>{
-      console.log( 'back from GET:', response.data );
+    }).then( ( response ) => {
+      // AUDRY - remove later
+      // console.log( 'back from GET:', response.data );
+      
       // hold this data in state.items
       this.setState({
         galleryList: response.data
