@@ -9,10 +9,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getItems();
+    this.getGalleryList();
   }
 
-  getItems(){
+  getGalleryList(){
     // get items from server via AXIOS
     axios({
       method: 'GET',
@@ -38,7 +38,7 @@ class App extends Component {
         <br/>
         <p>Gallery goes here</p>
         <ul>
-          { this.state.galleryList.map( ( item, index )=><img key={ index } src={ item.path } />)}
+          { this.state.galleryList.map( ( picture ) => <img key={ picture.id } src={ picture.path } />)}
         </ul>
       </div>
     );
