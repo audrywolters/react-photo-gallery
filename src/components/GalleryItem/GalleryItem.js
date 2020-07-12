@@ -5,12 +5,7 @@ class GalleryItem extends Component {
 
   state = {
     isDisplayingImage: true
-  } // end state
-
-  // AUDRY - delete if not neededs
-  componentDidMount() {
-    console.log( 'in gallery ITEM ' );
-  } // end componentDidMount
+  }
 
   toggleImageAndDescription = () => {
     this.setState({
@@ -18,24 +13,32 @@ class GalleryItem extends Component {
     })
   }
 
+  onClickLike = () => {
+    this.props.onClickLike( this.props.thisPicture.id );
+  }
+
   render() {
 
     return (
+      <div>
+
         <div onClick={ this.toggleImageAndDescription }>
-          { this.state.isDisplayingImage
+          {
+            this.state.isDisplayingImage
             ? 
             <img src={ this.props.thisPicture.path } />
             :
             <div className="description">{ this.props.thisPicture.description }</div>    
           }
-          
-          {/* <span>LIKES: { this.props.thisPicture.likes }</span> */}
-
         </div>
-    ); // end return
+        <button onClick={ this.onClickLike }>&lt;3</button>
+        <div>Liked: { this.props.thisPicture.likes }</div> 
 
-  } // end render
+      </div>
+    );
 
-} // end class
+  }
+
+}
 
 export default GalleryItem;
