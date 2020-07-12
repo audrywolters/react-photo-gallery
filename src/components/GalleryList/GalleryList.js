@@ -8,8 +8,7 @@ class GalleryList extends Component {
 
     return (
       <div>
-
-        <h2>Fun With Friends</h2>
+        
         <ul>
           { this.props.pictures.map( ( picture ) => 
                 <GalleryItem key={ picture.id } 
