@@ -29,8 +29,8 @@ class App extends Component {
     }).catch( ( err )=>{
       console.log( err );
       alert( 'nope' );
-    }) // end axios call
-  } // end getItems
+    })
+  }
 
   onClickLike = ( pictureID ) => {
     console.log( 'App.js onClickLike ', pictureID );
@@ -52,17 +52,20 @@ class App extends Component {
 
     return (
       <div className="App">
+
         <header className="App-header">
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <GalleryList pictures={ this.state.galleryList } 
-                     onClickLike={ this.onClickLike } />
-      </div>
-    ); // end return
-    
-  } // end render
+        <GalleryList pictures={ this.state.galleryList }
+                     onClickLike={ this.onClickLike }
+        />
 
-} // end App
+      </div>
+    );
+    
+  }
+
+}
 
 export default App;

@@ -13,11 +13,11 @@ class GalleryList extends Component {
         <ul>
           { this.props.pictures.map( ( picture ) => 
                 <GalleryItem key={ picture.id } 
-                thisPicture={ picture } 
-                onClickLike={ this.props.onClickLike } 
+                             thisPicture={ picture } 
+                             onClickLike={ this.props.onClickLike } 
                 /> ) }
         </ul>
-        
+
       </div>
     );
 
