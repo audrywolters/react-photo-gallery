@@ -22,7 +22,8 @@ class GalleryItem extends Component {
 
     return (
         <div onClick={ this.toggleImageAndDescription }>
-          { this.state.isDisplayingImage
+          {
+            this.state.isDisplayingImage
             ? 
             <img src={ this.props.thisPicture.path } />
             :
