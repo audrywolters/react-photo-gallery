@@ -4,28 +4,25 @@ import './GalleryList.css';
 
 class GalleryList extends Component {
 
-  state = {
-    pictures: []
-  } // end state
-
-  // AUDRY - delete if not needed
-  componentDidMount() {
-    console.log( 'in gallery LIST ' );
-  } // end componentDidMount
-
   render() {
 
     return (
       <div>
-        <h1>GalleryList</h1>
+
+        <h2>Fun With Friends</h2>
         <ul>
-          { this.props.pictures.map( ( picture ) => <GalleryItem key={ picture.id } thisPicture={ picture } /> ) }
+          { this.props.pictures.map( ( picture ) => 
+                <GalleryItem key={ picture.id } 
+                             thisPicture={ picture } 
+                             onClickLike={ this.props.onClickLike } 
+                /> ) }
         </ul>
+
       </div>
-    ); // end return
+    );
 
-  } // end render
+  }
 
-} // end class
+}
 
 export default GalleryList;
