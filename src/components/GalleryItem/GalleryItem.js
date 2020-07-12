@@ -4,7 +4,7 @@ import './GalleryItem.css';
 class GalleryItem extends Component {
 
   state = {
-    likes: 0
+    isDisplayingImage: true
   } // end state
 
   // AUDRY - delete if not neededs
@@ -12,17 +12,26 @@ class GalleryItem extends Component {
     console.log( 'in gallery ITEM ' );
   } // end componentDidMount
 
+  toggleImageAndDescription = () => {
+    this.setState({
+      isDisplayingImage: !this.state.isDisplayingImage
+    })
+  }
+
   render() {
 
     return (
-      <div>
-        <img src={ this.props.thisPicture.path } />
-        {/* <br />
-        <span>ID: { this.props.thisPicture.id }</span><br />
-        <span>DESCRIPTION: { this.props.thisPicture.description }</span><br />
-        <span>LIKES: { this.props.thisPicture.likes }</span><br />
-        <span>PATH: { this.props.thisPicture.path }</span><br /> */}
-      </div>
+        <div onClick={ this.toggleImageAndDescription }>
+          { this.state.isDisplayingImage
+            ? 
+            <img src={ this.props.thisPicture.path } />
+            :
+            <div className="description">{ this.props.thisPicture.description }</div>    
+          }
+          
+          {/* <span>LIKES: { this.props.thisPicture.likes }</span> */}
+
+        </div>
     ); // end return
 
   } // end render
