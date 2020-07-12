@@ -4,14 +4,8 @@ import './GalleryItem.css';
 class GalleryItem extends Component {
 
   state = {
-    isDisplayingImage: true,
-    likes: 0
+    isDisplayingImage: true
   } // end state
-
-  // AUDRY - delete if not neededs
-  componentDidMount() {
-    // console.log( 'in gallery ITEM ' );
-  } // end componentDidMount
 
   toggleImageAndDescription = () => {
     this.setState({
@@ -20,13 +14,14 @@ class GalleryItem extends Component {
   }
 
   onClickLike = () => {
-    this.props.onClickLike('in ITEM');
+    this.props.onClickLike( this.props.thisPicture.id );
   }
 
   render() {
 
     return (
       <div>
+
         <div onClick={ this.toggleImageAndDescription }>
           {
             this.state.isDisplayingImage
@@ -38,10 +33,9 @@ class GalleryItem extends Component {
         </div>
         
         <button onClick={ this.onClickLike }>&lt;3</button>
-        <div>LIKES: { this.props.thisPicture.likes }</div> 
-        {
-          // console.log(this.state.likes)
-        }
+        
+        <div>Liked: { this.props.thisPicture.likes }</div> 
+
       </div>
     ); // end return
 

@@ -22,7 +22,7 @@ class App extends Component {
       url: '/gallery'
     }).then( ( response ) => {
       // AUDRY - remove later
-      // console.log( 'back from GET:', response.data );
+      console.log( 'back from GET:', response.data );
       
       // hold this data in state.items
       this.setState({
@@ -39,8 +39,7 @@ class App extends Component {
 
     axios( {
       method: 'PUT',
-      url: '/gallery/like/:id',
-      data: pictureID
+      url: `/gallery/like/${ pictureID }`
     })    
     .then( ( response ) => {
       console.log( 'put response: ' + response.data );
