@@ -5,7 +5,7 @@ class GalleryItem extends Component {
 
   state = {
     isDisplayingImage: true
-  } // end state
+  }
 
   toggleImageAndDescription = () => {
     this.setState({
@@ -31,16 +31,14 @@ class GalleryItem extends Component {
             <div className="description">{ this.props.thisPicture.description }</div>    
           }
         </div>
-        
         <button onClick={ this.onClickLike }>&lt;3</button>
-        
         <div>Liked: { this.props.thisPicture.likes }</div> 
 
       </div>
-    ); // end return
+    );
 
-  } // end render
+  }
 
-} // end class
+}
 
 export default GalleryItem;

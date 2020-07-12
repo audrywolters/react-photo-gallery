@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
+import './App.css';
 
 class App extends Component {
 
@@ -10,8 +10,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // console.log( 'in APP ' );
-    // this.onClickLike(1);
     this.getGalleryList();
   }
 
