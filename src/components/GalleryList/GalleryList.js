@@ -4,14 +4,15 @@ import './GalleryList.css';
 
 class GalleryList extends Component {
 
-  state = {
-    pictures: []
-  } // end state
-
   // AUDRY - delete if not needed
   componentDidMount() {
-    console.log( 'in gallery LIST ' );
+    // console.log( 'in gallery LIST ' );
   } // end componentDidMount
+
+  // listClickLike = () => {
+  //   this.props.clickLike( 'in LIST' );
+
+  // }
 
   render() {
 
@@ -19,8 +20,13 @@ class GalleryList extends Component {
       <div>
         <h1>GalleryList</h1>
         <ul>
-          { this.props.pictures.map( ( picture ) => <GalleryItem key={ picture.id } thisPicture={ picture } /> ) }
+          { this.props.pictures.map( ( picture ) => 
+                <GalleryItem key={ picture.id } 
+                thisPicture={ picture } 
+                onClickLike={ this.props.onClickLike } 
+                /> ) }
         </ul>
+        {/* <button onClick={ this.listClickLike }>List</button> */}
       </div>
     ); // end return
 

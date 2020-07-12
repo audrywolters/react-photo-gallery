@@ -10,11 +10,12 @@ class App extends Component {
   }
 
   componentDidMount() {
-    console.log( 'in APP ' );
+    // console.log( 'in APP ' );
+    // this.onClickLike(1);
     this.getGalleryList();
   }
 
-  getGalleryList(){
+  getGalleryList() {
     // get items from server via AXIOS
     axios({
       method: 'GET',
@@ -33,6 +34,23 @@ class App extends Component {
     }) // end axios call
   } // end getItems
 
+  onClickLike = ( pictureID ) => {
+    console.log( 'App.js onClickLike ', pictureID );
+
+    axios( {
+      method: 'PUT',
+      url: '/gallery/like/:id',
+      data: pictureID
+    })    
+    .then( ( response ) => {
+      console.log( 'put response: ' + response.data );
+      this.getGalleryList();
+    })      
+    .catch( ( error ) => {
+      console.log( 'got error!: ', error );
+    })
+  }
+
   render() {
 
     return (
@@ -41,7 +59,8 @@ class App extends Component {
           <h1 className="App-title">Gallery of my life</h1>
         </header>
         <br/>
-        <GalleryList pictures={ this.state.galleryList } />
+        <GalleryList pictures={ this.state.galleryList } 
+                     onClickLike={ this.onClickLike } />
       </div>
     ); // end return
     
